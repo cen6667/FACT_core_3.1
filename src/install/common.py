@@ -20,6 +20,12 @@ def install_pip(python_command):
         if return_code != 0:
             raise InstallationError('Error in pip installation for {}:\n{}'.format(python_command, output))
 
+def install_pip2(python_command):
+    logging.info('Installing {} pip'.format(python_command))
+    for command in ['wget https://bootstrap.pypa.io/pip/2.7/get-pip.py', 'sudo -EH {} get-pip.py'.format(python_command), 'rm get-pip.py']:
+        output, return_code = execute_shell_command_get_return_code(command)
+        if return_code != 0:
+            raise InstallationError('Error in pip installation for {}:\n{}'.format(python_command, output))
 
 def main(distribution):  # pylint: disable=too-many-statements
     apt_install_packages('apt-transport-https')
@@ -53,7 +59,7 @@ def main(distribution):  # pylint: disable=too-many-statements
     apt_install_packages('python', 'python-dev')
     with suppress(InstallationError):
         apt_remove_packages('python-pip')
-    install_pip('python2')
+    install_pip2('python2')
 
     # install general python dependencies
     apt_install_packages('libmagic-dev')
