@@ -23,8 +23,8 @@ fi
 	cd internal
 	(
 		cd passwords		
-		# wget -N https://raw.githubusercontent.com/danielmiessler/SecLists/f9c1ec678c1cae461f1dc8b654ceb6719fd03d33/Passwords/Common-Credentials/10k-most-common.txt
-		wget -N http://112.126.82.245/files/10k-most-common.txt
+		wget -N https://raw.githubusercontent.com/danielmiessler/SecLists/f9c1ec678c1cae461f1dc8b654ceb6719fd03d33/Passwords/Common-Credentials/10k-most-common.txt
+# 		wget -N http://112.126.82.245/files/10k-most-common.txt
 	)
 	python3 update_password_list.py
 ) || exit 1
