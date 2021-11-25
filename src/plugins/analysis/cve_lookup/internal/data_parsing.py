@@ -16,10 +16,10 @@ except (ImportError, SystemError):
     from helper_functions import CveEntry, CveSummaryEntry, CveLookupException
 
 CPE_FILE = 'official-cpe-dictionary_v2.3.xml'
-# CPE_URL = 'https://nvd.nist.gov/feeds/xml/cpe/dictionary/{}.zip'.format(CPE_FILE)
-CPE_URL = 'http://112.126.82.245/files/{}.zip'.format(CPE_FILE)
-# CVE_URL = 'https://nvd.nist.gov/feeds/json/cve/1.0/nvdcve-1.0-{}.json.zip'
-CVE_URL = 'http://112.126.82.245/files/nvdcve-1.0-{}.json.zip'
+CPE_URL = 'https://nvd.nist.gov/feeds/xml/cpe/dictionary/{}.zip'.format(CPE_FILE)
+# CPE_URL = 'http://112.126.82.245/files/{}.zip'.format(CPE_FILE)
+CVE_URL = 'https://nvd.nist.gov/feeds/json/cve/1.0/nvdcve-1.0-{}.json.zip'
+# CVE_URL = 'http://112.126.82.245/files/nvdcve-1.0-{}.json.zip'
 
 
 def get_cve_links(url: str, selected_years: Optional[List[int]] = None) -> List[str]:
